@@ -1,0 +1,11 @@
+FROM golang:1.21
+
+RUN curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.55.2
+RUN go install github.com/swaggo/swag/cmd/swag@latest
+RUN go install -v golang.org/x/tools/gopls@latest
+#RUN code --install-extension usernamehw.errorlens
+#RUN code --install-extension golang.Go
+
+WORKDIR /app
+COPY * ./
+RUN go mod download

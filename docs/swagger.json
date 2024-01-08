@@ -1,0 +1,48 @@
+{
+    "schemes": [
+        "http"
+    ],
+    "swagger": "2.0",
+    "info": {
+        "description": "This is a sample server for company.",
+        "title": "Swagger Example API",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "name": "API Support //\t@contact.url\thttp://www.swagger.io/support",
+            "email": "support@swagger.io"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "2.0"
+    },
+    "host": "localhost:8573",
+    "basePath": "/",
+    "paths": {
+        "/testapi": {
+            "get": {
+                "description": "get string",
+                "produces": [
+                    "text/plain"
+                ],
+                "summary": "outputs test message",
+                "operationId": "crop",
+                "responses": {
+                    "200": {
+                        "description": "./myfile.txt",
+                        "schema": {
+                            "type": "file"
+                        },
+                        "headers": {
+                            "SuperMeta": {
+                                "type": "string",
+                                "description": "i am super meta data"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
