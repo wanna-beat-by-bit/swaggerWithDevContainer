@@ -15,6 +15,10 @@ dev-start:
 help:
 	# swag init - to generate swagger docs from project code
 
+.PHONY: swag
+swag:
+	swag init -g cmd/swaggerTest/main.go	
+
 .PHONY: vscode-post-install
 vscode-post-install:
 	# Пост установка плагинов для vs code для Fomin.AK

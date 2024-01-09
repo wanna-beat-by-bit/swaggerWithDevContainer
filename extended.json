@@ -1,0 +1,96 @@
+
+
+{
+	"openapi": "3.0.0",
+	"info": {
+		"title": "Demo api",
+		"description": "Demo api for the article 'specify two responses with the same code based on an optional parameter'",
+		"version": "0.1.0"
+	},
+	"paths": {
+		"/vehicle": {
+			"get": {
+				"responses": {
+					"200": {
+						"description": "Get a vehicle",
+						"headers": {
+							"Date": {
+								"description": "Timestamp of the response",
+								"schema": {
+									"type": "string",
+									"format": "date-time"
+								}
+							}
+						},
+						"content": {
+							"application/json": {
+								"schema": {
+									"oneOf": [
+										{
+											"$ref": "#/components/schemas/My"
+										},
+										{
+											"$ref": "#/components/schemas/Car"
+										},
+										{
+											"$ref": "#/components/schemas/Bike"
+										}
+									]
+								},
+								"examples": {
+									"my": {
+										"summary": "an example of a nonsense",
+										"value": "hello world"
+									},
+									"car": {
+										"summary": "an example of a car",
+										"value": {
+											"owner": "baeldung",
+											"plate": "AEX305"
+										}
+									},
+									"bike": {
+										"summary": "an example of a bike",
+										"value": {
+											"owner": "john doe",
+											"speed": 25
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"components": {
+		"schemas": {
+			"My":{
+				"type": "string"
+			},
+			"Car": {
+				"type": "object",
+				"properties": {
+					"owner": {
+						"type": "string"
+					},
+					"plate": {
+						"type": "string"
+					}
+				}
+			},
+			"Bike": {
+				"type": "object",
+				"properties": {
+					"owner": {
+						"type": "string"
+					},
+					"speed": {
+						"type": "integer"
+					}
+				}
+			}
+		}
+	}
+}

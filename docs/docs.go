@@ -23,19 +23,19 @@ const docTemplate = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
-        "/testapi": {
+        "/testapi/": {
             "get": {
-                "description": "get string",
+                "description": "getting file",
                 "produces": [
-                    "text/plain"
+                    "image/png"
                 ],
-                "summary": "outputs test message",
+                "summary": "returns file",
                 "operationId": "crop",
                 "responses": {
                     "200": {
-                        "description": "./myfile.txt",
+                        "description": "hello world",
                         "schema": {
-                            "type": "file"
+                            "type": "string"
                         },
                         "headers": {
                             "SuperMeta": {

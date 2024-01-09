@@ -12,22 +12,22 @@ info:
   title: Swagger Example API
   version: "2.0"
 paths:
-  /testapi:
+  /testapi/:
     get:
-      description: get string
+      description: getting file
       operationId: crop
       produces:
-      - text/plain
+      - image/png
       responses:
         "200":
-          description: ./myfile.txt
+          description: hello world
           headers:
             SuperMeta:
               description: i am super meta data
               type: string
           schema:
-            type: file
-      summary: outputs test message
+            type: string
+      summary: returns file
 schemes:
 - http
 swagger: "2.0"
